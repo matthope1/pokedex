@@ -5,11 +5,9 @@ import Pokedex from './Pokedex';
 import {pokeData} from './pokedata';
 
 function App() {
-  console.log(pokeData);
   return (
     <div className="App">
-      <h1>hello</h1>
-      <Pokedex/>
+      <Pokedex data={pokeData}/>
     </div>
   );
 }
