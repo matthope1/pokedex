@@ -6,7 +6,11 @@ class Pokecard extends Component {
     render(){
         
         const {id, name, type, exp} = this.props;
-        const imgSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+
+        let padToThree = (number) => (number <= 999 ? `00${number}`.slice(-3) : number);
+        // FIXME: This link doesn't work
+        // let imgSrc = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${padToThree(id)}`;
+        let imgSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 
         return(
             <div className="Pokecard">
@@ -14,6 +18,7 @@ class Pokecard extends Component {
                 <img src={imgSrc} alt={`picture of ${name}`}/>
                 <p>type: {type}</p>
                 <p>EXP: {exp}</p>
+                <p>{padToThree(id)}</p>
             </div>
         );
     }

@@ -66,4 +66,5 @@ p {
   background-color: lightgrey;
   border-radius: 20px;
   padding-bottom: 10px;
+  box-shadow: lightslategray;
 }
