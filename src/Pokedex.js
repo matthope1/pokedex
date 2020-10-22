@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Pokecard from './Pokecard';
 
 
-
 class Pokedex extends Component {
     render(){
 
@@ -10,7 +9,6 @@ class Pokedex extends Component {
 
         return(
             <div className="Pokedex">
-                <h1>Pokedex</h1>
                 {data.map((item) => 
                     <Pokecard 
                         id={item.id}
@@ -24,6 +22,7 @@ class Pokedex extends Component {
         );
     }
 }
+
 
 
 export default Pokedex;

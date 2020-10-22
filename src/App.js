@@ -6,7 +6,8 @@ import {pokeData} from './pokedata';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App wrapper">
+      <h1>Pokedex</h1>
       <Pokedex data={pokeData}/>
     </div>
   );
