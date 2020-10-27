@@ -28,7 +28,6 @@ function populateHands(data) {
 
     // grab entries from data based
     // on the randomly generated numbers
-
     randomIndexes.forEach(index => {
         const item = data[index];
         handOne.push(item);
@@ -60,21 +59,25 @@ class Pokegame extends Component {
         let handOne = [];
         let handTwo = [];
 
+        let handOneExp;
+        let handTwoExp;
+
         const hands = populateHands(data);
 
         handOne = hands[0];
         handTwo = hands[1];
 
-        calculateExperience(handOne);
+        handOneExp = calculateExperience(handOne);
+        handTwoExp = calculateExperience(handTwo);
 
         return(
             <div className="Pokegame">
                 <div className="hand">
-                    <Pokedex data={handOne} />
+                    <Pokedex data={handOne} isWinner={handOneExp > handTwoExp} />
                 </div>
 
                 <div className="hand">
-                    <Pokedex data={handTwo} />
+                    <Pokedex data={handTwo} isWinner={handTwoExp > handOneExp} />
                 </div>
             </div>
         )
