@@ -7,7 +7,11 @@ import Pokedex from './Pokedex';
 // it should then render two pokedex compoenents one for each hand
 
 class Pokegame extends Component {
+
     render() {
+        const data = this.props.data;
+
+        console.log(data);
         return(
             <div className="Pokegame">
 
@@ -15,3 +19,5 @@ class Pokegame extends Component {
         )
     }
 }
+
+export default Pokegame;
