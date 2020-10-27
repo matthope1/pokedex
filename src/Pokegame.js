@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Pokecard from './Pokecard';
 import Pokedex from './Pokedex';
 
 // Pokegame should take your list of 8 pokemon and randomly assign
@@ -27,16 +28,18 @@ function populateHands(data) {
     let handTwo = []; 
 
     randomIndexes.forEach(index => {
-        handOne.push(data.splice(index,1));
+        const item = data[index];
+        handOne.push(item);
     });
     
     // push remaining items onto hand2
     data.forEach(item => {
-        handTwo.push(item);
+        if(!handOne.includes(item)) {
+            handTwo.push(item);
+        }
     });
 
-    console.log(handOne);
-    console.log(handTwo);
+    return [handOne, handTwo];
 
 }
 
@@ -45,20 +48,41 @@ class Pokegame extends Component {
     render() {
         const data = this.props.data;
         // pick 4 random indexes from data
+        let handOne = [];
+        let handTwo = [];
 
-        populateHands(data);
+        const hands = populateHands(data);
 
-        const handOne = [];
-        const handTwo = [];
+        handOne = hands[0];
+        handTwo = hands[0];
+
+        console.log(handOne);
+        console.log(handTwo);
 
         return(
             <div className="Pokegame">
                 <div className="hand">
-
+                    {handOne.map(item => 
+                        <Pokecard
+                            id={item.id}
+                            key={item.id}
+                            name={item.name}
+                            type={item.type}
+                            exp={item.base_experience}
+                        />
+                    )}
                 </div>
 
                 <div className="hand">
-
+                    {handTwo.map(item => 
+                        <Pokecard
+                            id={item.id}
+                            key={item.id}
+                            name={item.name}
+                            type={item.type}
+                            exp={item.base_experience}
+                        />
+                    )}
                 </div>
             </div>
         )
