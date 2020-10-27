@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import Pokedex from './Pokedex';
+import Pokegame from './PokeGame';
 import {pokeData} from './pokedata';
 
 function App() {
