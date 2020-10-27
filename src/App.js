@@ -5,6 +5,7 @@ import Pokedex from './Pokedex';
 import {pokeData} from './pokedata';
 
 function App() {
+  // TODO: App should render a pokegame
   return (
     <div className="App wrapper">
       <h1>Pokedex</h1>
