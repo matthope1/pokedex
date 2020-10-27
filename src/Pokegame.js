@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Pokecard from './Pokecard';
 import Pokedex from './Pokedex';
 
 // Pokegame should take your list of 8 pokemon and randomly assign
@@ -11,7 +10,7 @@ function getRandomNumbers(n) {
 
     let randomNum;
 
-    while (randomNumList.length < 4){ 
+    while (randomNumList.length < n){ 
         randomNum = Math.floor(Math.random() * 8);
         if (!randomNumList.includes(randomNum)) {
             randomNumList.push(randomNum);
@@ -27,6 +26,9 @@ function populateHands(data) {
     let handOne = [];
     let handTwo = []; 
 
+    // grab entries from data based
+    // on the randomly generated numbers
+
     randomIndexes.forEach(index => {
         const item = data[index];
         handOne.push(item);
@@ -40,7 +42,6 @@ function populateHands(data) {
     });
 
     return [handOne, handTwo];
-
 }
 
 class Pokegame extends Component {
@@ -54,35 +55,17 @@ class Pokegame extends Component {
         const hands = populateHands(data);
 
         handOne = hands[0];
-        handTwo = hands[0];
-
-        console.log(handOne);
-        console.log(handTwo);
+        handTwo = hands[1];
 
         return(
             <div className="Pokegame">
                 <div className="hand">
-                    {handOne.map(item => 
-                        <Pokecard
-                            id={item.id}
-                            key={item.id}
-                            name={item.name}
-                            type={item.type}
-                            exp={item.base_experience}
-                        />
-                    )}
+                    <Pokedex data={handOne} />
                 </div>
 
+
                 <div className="hand">
-                    {handTwo.map(item => 
-                        <Pokecard
-                            id={item.id}
-                            key={item.id}
-                            name={item.name}
-                            type={item.type}
-                            exp={item.base_experience}
-                        />
-                    )}
+                    <Pokedex data={handTwo} />
                 </div>
             </div>
         )

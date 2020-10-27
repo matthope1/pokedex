@@ -38,8 +38,8 @@
 }
 
 .wrapper {
+  width: 90%;
   margin: 0 auto;
-  border: solid;
   max-width: 1200px;
 }
 
@@ -56,6 +56,8 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  border: solid;
+  margin-bottom: 50px;
 }
 
 .Pokecard {
