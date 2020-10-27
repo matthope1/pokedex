@@ -59,6 +59,7 @@ p {
   border: solid;
   margin-bottom: 50px;
   padding-top: 20px;
+  animation: .4s ease-out 0s 1 slideInFromLeft;
 }
 
 .Pokecard {
@@ -70,4 +71,20 @@ p {
   border-radius: 20px;
   padding-bottom: 10px;
   box-shadow: lightslategray;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.Pokecard:hover {
+  box-shadow: 5px 10px black;
+}
+
+
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

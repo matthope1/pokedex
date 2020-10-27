@@ -10,7 +10,6 @@ class Pokedex extends Component {
         let result = (isWinner ? 'This deck wins!' : '');
 
         return(
-
             <>
                 <h1>{result}</h1>
                 <div className="Pokedex">
