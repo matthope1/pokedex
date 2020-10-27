@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import Pokedex from './Pokedex';
 
-
 // Pokegame should take your list of 8 pokemon and randomly assign
 // them into two hands of 4 cards each
 // it should then render two pokedex compoenents one for each hand
 
 function getRandomNumbers(n) {
-    const randomNumList= [];
+    const randomNumList = [];
 
     let randomNum;
 
@@ -17,14 +16,27 @@ function getRandomNumbers(n) {
             randomNumList.push(randomNum);
         }
     }
-
-    return randomValues;
+    return randomNumList;
 }
-
 
 function populateHands(data) {
 
     const randomIndexes = getRandomNumbers(4);
+    
+    let handOne = [];
+    let handTwo = []; 
+
+    randomIndexes.forEach(index => {
+        handOne.push(data.splice(index,1));
+    });
+    
+    // push remaining items onto hand2
+    data.forEach(item => {
+        handTwo.push(item);
+    });
+
+    console.log(handOne);
+    console.log(handTwo);
 
 }
 
