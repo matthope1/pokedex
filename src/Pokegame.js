@@ -44,6 +44,14 @@ function populateHands(data) {
     return [handOne, handTwo];
 }
 
+function calculateExperience(hand) {
+    let exp = 0;
+    hand.forEach(item => {
+        exp += item.base_experience;
+    })
+    return exp;
+}
+
 class Pokegame extends Component {
 
     render() {
@@ -57,12 +65,13 @@ class Pokegame extends Component {
         handOne = hands[0];
         handTwo = hands[1];
 
+        calculateExperience(handOne);
+
         return(
             <div className="Pokegame">
                 <div className="hand">
                     <Pokedex data={handOne} />
                 </div>
-
 
                 <div className="hand">
                     <Pokedex data={handTwo} />

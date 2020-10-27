@@ -58,6 +58,7 @@ p {
   justify-content: space-around;
   border: solid;
   margin-bottom: 50px;
+  padding-top: 20px;
 }
 
 .Pokecard {
